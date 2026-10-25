@@ -137,3 +137,13 @@ terraform destroy
 - Add Trivy image scanning to the pipeline
 - Enable Microsoft Defender for Cloud
 - Private cluster with a jump host
+
+## Screenshots
+
+**Pipeline: green runs, and the red runs that caught problems (run #5 blocked a risky change)**
+
+![GitHub Actions runs](docs/images/pipeline-runs.png)
+
+**Cluster running from Git: two hardened pods, Flux Kustomizations Ready**
+
+![Pods and Flux status](docs/images/pods-and-flux.png)
