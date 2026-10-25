@@ -105,20 +105,7 @@ The GitHub Actions workflow runs Checkov on every push and pull request with `so
 
 Flux's own generated manifests (`clusters/aks/flux-system`) are excluded, because they are third-party code.
 
-### 7. Prove the NetworkPolicy
-
-```bash
-# From another namespace: blocked (times out)
-kubectl create namespace attacker
-kubectl run probe -n attacker --image=busybox:1.36 --restart=Never --rm -it -- \
-  wget -qO- -T 5 http://web.demo.svc.cluster.local
-
-# From the same namespace: allowed
-kubectl run probe -n demo --image=busybox:1.36 --restart=Never --rm -it -- \
-  wget -qO- -T 5 http://web.demo.svc.cluster.local
-```
-
-### 8. Disaster recovery
+### 7. Disaster recovery
 
 The cluster was destroyed and rebuilt (the network type change forces replacement). After re-running `flux bootstrap`, both hardened pods and the NetworkPolicy were back about 40 seconds later with no manual `kubectl apply`.
 
