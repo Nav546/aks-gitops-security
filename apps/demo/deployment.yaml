@@ -31,7 +31,7 @@ spec:
             - containerPort: 8080
           securityContext:
             runAsUser: 101
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true
             readOnlyRootFilesystem: true
             capabilities:
               drop: ["ALL"]
